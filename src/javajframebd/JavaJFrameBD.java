@@ -101,6 +101,7 @@ public class JavaJFrameBD extends JFrame{
             arcLabel.addActionListener(l->drawArc());
             polyLabel.addActionListener(l->drawPolygone2());
             fLabel.addActionListener(l->drawFunction());
+            f2Label.addActionListener(l->drawFunction2());
             annulerLabel.addActionListener(l->resetCanvas());
             
         
@@ -176,6 +177,18 @@ public class JavaJFrameBD extends JFrame{
           
           void resetCanvas(){
               cv.update(g);
+          }
+          
+          //f(x)=cos(x/7)-cos(x/5)+3
+          
+          double f(double x){
+              return (Math.cos(x/7)-Math.sin(x/5)+3)*100;
+          }
+          
+          void drawFunction2(){
+              for (int i = -500; i < 500; i++) {
+                  g.drawLine(x,(int)f(x),x+1,(int)f(x+1));
+              }
           }
   
 
