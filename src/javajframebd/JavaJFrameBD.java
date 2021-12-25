@@ -100,7 +100,8 @@ public class JavaJFrameBD extends JFrame{
             carrelabel.addActionListener(l->drawCarre());
             arcLabel.addActionListener(l->drawArc());
             polyLabel.addActionListener(l->drawPolygone2());
-            fLabel.addActionListener(l->drawFunction());
+            //fLabel.addActionListener(l->drawFunction());
+            fLabel.addActionListener(l->drawFunction3());
             f2Label.addActionListener(l->drawFunction2());
             annulerLabel.addActionListener(l->resetCanvas());
             
@@ -175,6 +176,13 @@ public class JavaJFrameBD extends JFrame{
               }
           }
           
+             void drawFunction3(){
+  
+                  Courbe cb=new Courbe(this);
+                  cb.start();
+
+          }
+          
           void resetCanvas(){
               cv.update(g);
           }
@@ -186,8 +194,13 @@ public class JavaJFrameBD extends JFrame{
           }
           
           void drawFunction2(){
-              for (int i = -500; i < 500; i++) {
+              for (int i = 0; i < 500; i++) {
                   g.drawLine(x,(int)f(x),x+1,(int)f(x+1));
+                  try{
+                      new Thread().sleep(2000);
+                  }catch(Exception e){
+                      System.out.println(e.getMessage());
+                  }
               }
           }
   
